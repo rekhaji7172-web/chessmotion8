@@ -7,19 +7,15 @@ workflows:
       flutter: 3.24.5
       java: 17
 
-    triggering:
-      events:
-        - push
-      branch_patterns:
-        - pattern: master
-          include: true
-          source: true
-
     scripts:
       - name: Print versions
         script: |
           flutter --version
           java -version
+
+      - name: Clean project
+        script: |
+          flutter clean
 
       - name: Get Flutter packages
         script: |
@@ -27,12 +23,17 @@ workflows:
 
       - name: Build release APK
         script: |
-          flutter build apk --release
+          flutter build apk --release --no-tree-shake-icons
 
     artifacts:
-      - build/app/outputs/flutter-apk/*.apk
+      - build/app/outputs/flutter-apk/**/*.apk
+      - build/app/outputs/apk/release/*.apk
+      - build/**/*.apk
 
     publishing:
       email:
         recipients:
           - rekhaji7172@gmail.com
+        notify:
+          success: true
+          failure: true
