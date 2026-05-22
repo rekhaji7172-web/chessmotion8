@@ -1,0 +1,28 @@
+workflows:
+  android-release:
+    name: ChessMotion Android Release
+    max_build_duration: 60
+    environment:
+      flutter: 3.24.5
+      java: 17
+    scripts:
+      - name: Print versions
+        script: |
+          flutter --version
+          java -version
+      - name: Get Flutter packages
+        script: flutter pub get
+      - name: Build release APK
+        script: |
+          flutter build apk --release \
+            --target-platform android-arm,android-arm64,android-x64 \
+            --android-skip-build-dependency-validation
+    artifacts:
+      - build/app/outputs/flutter-apk/*.apk
+    publishing:
+      email:
+        recipients:
+          - rekhaji7172@gmail.com
+        notify:
+          success: true
+          failure: true

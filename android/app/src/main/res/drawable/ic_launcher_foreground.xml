@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+
+    <!-- Chess board grid background -->
+    <path
+        android:fillColor="#1A2744"
+        android:pathData="M27,27 L54,27 L54,54 L27,54 Z"/>
+    <path
+        android:fillColor="#1A2744"
+        android:pathData="M54,54 L81,54 L81,81 L54,81 Z"/>
+
+    <!-- King chess piece (simplified) -->
+    <path
+        android:fillColor="#F5A623"
+        android:pathData="M54,28 L54,22 M51,22 L57,22 M51,26 L57,26
+                          M46,44 Q54,36 62,44 L65,52 L43,52 Z
+                          M43,52 L65,52 L67,56 L41,56 Z"/>
+
+    <!-- Play button circle -->
+    <path
+        android:fillColor="#E53935"
+        android:pathData="M76,76 m-10,0 a10,10 0 1,0 20,0 a10,10 0 1,0 -20,0"/>
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M73,72 L73,80 L81,76 Z"/>
+</vector>
