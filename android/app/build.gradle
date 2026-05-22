@@ -1,52 +1,37 @@
 plugins {
     id "com.android.application"
-    id "kotlin-android"
+    id "org.jetbrains.kotlin.android"
     id "dev.flutter.flutter-gradle-plugin"
 }
 
 android {
-    namespace "com.chessmotion.app"
-    compileSdk 35
-    ndkVersion "27.0.12077973"
+    namespace = "com.example.your_project_name" // Note: Agar aapka pehle se koi alag package name ya namespace likha ho, toh use hi rehne dena.
+    compileSdk = 36
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
 
     kotlinOptions {
         jvmTarget = "17"
     }
 
-    sourceSets {
-        main.java.srcDirs += "src/main/kotlin"
-    }
-
     defaultConfig {
-        applicationId "com.chessmotion.app"
-        minSdk 21
-        targetSdk 35
-        versionCode flutter.versionCode
-        versionName flutter.versionName
+        applicationId = "com.example.your_project_name"
+        minSdk = flutter.minSdkVersion
+        targetSdk = 36
+        versionCode = flutter.versionCode
+        versionName = flutter.versionName
     }
 
     buildTypes {
         release {
-            signingConfig signingConfigs.debug
-            minifyEnabled false
-            shrinkResources false
-        }
-        debug {
-            minifyEnabled false
+            signingConfig = signingConfigs.debug
         }
     }
 }
 
 flutter {
-    source "../.."
-}
-
-dependencies {
-    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.9.24"
-    implementation "androidx.multidex:multidex:2.0.1"
+    source = "../.."
 }
