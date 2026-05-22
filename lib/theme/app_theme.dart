@@ -101,8 +101,8 @@ class AppTheme {
           letterSpacing: 0.3,
         ),
       ),
-      // CardTheme: correct Flutter 3.24 API
-      cardTheme: CardTheme(
+      // CardThemeData: Fixed for latest Flutter API
+      cardTheme: CardThemeData(
         color: bgCard,
         elevation: 0,
         shape: RoundedRectangleBorder(
