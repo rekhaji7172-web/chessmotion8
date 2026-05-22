@@ -4,7 +4,7 @@ workflows:
     max_build_duration: 60
 
     environment:
-      flutter: 3.24.5
+      flutter: stable
       java: 17
 
     scripts:
@@ -25,10 +25,14 @@ workflows:
         script: |
           flutter build apk --release --no-tree-shake-icons
 
+      - name: Find generated APK files
+        script: |
+          echo "Searching for APK files..."
+          find build -name "*.apk"
+          find . -name "*.apk"
+
     artifacts:
-      - build/app/outputs/flutter-apk/**/*.apk
-      - build/app/outputs/apk/release/*.apk
-      - build/**/*.apk
+      - "**/*.apk"
 
     publishing:
       email:
